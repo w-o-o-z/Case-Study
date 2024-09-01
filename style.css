@@ -1,0 +1,140 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Mirage Gothic', sans-serif;
+   text-align: center;
+  margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+header {
+    padding: 20px;
+   
+}
+
+h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: text-shadow 0.3s;
+}
+
+nav a:hover {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-size: 1.05;
+}
+
+.content {
+    padding: 20px;
+}
+
+#about, #projects, #contact {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@font-face {
+    font-family: 'Mirage Gothic';
+    src: url('path/to/MirageGothic.woff2') format('woff2'), /* Adjust the path as necessary */
+         url('path/to/MirageGothic.woff') format('woff');
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Centering container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px; /* Add space between the header and the animation */
+}
+
+/* Frame around the window */
+.image-frame {
+    position: relative;
+    width: 230px; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+    transition: transform 0.5s ease; /* Smooth transition for zoom effect */
+}
+
+/* Window image with rain effect */
+.window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    z-index: 3; /* Ensure the window image is on top of the content */
+}
+
+/* Image wrapper */
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Background image */
+.background-image {
+    width: 300px; /* Adjust width to fit the image properly */
+    height: 500px; /* Adjust height to fit the image properly */
+    transform: translate(-175px,80px) scale(1); /* Start by showing the big guy */    
+
+
+    transition: transform .75s ease; /* Smooth scroll transition */
+    
+    z-index: 1; /* Ensure background image is below the window */
+}
+
+/* Zoom effect on hover */
+.image-frame:hover .background-image {
+    transform: translate(50px,2px) scale(0.9); /* Adjust this value to focus on the child */
+
+}
+
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column; /* Adjust body layout for smaller screens */
+    }
+
+    .image-frame {
+        width: 90%; /* Make the frame take most of the screen width */
+        height: auto;
+        margin: 10px; /* Add some margin for spacing */
+    }
+
+    .background-image {
+        width: 100%; /* Ensure images take full width */
+        height: auto; /* Adjust height to maintain aspect ratio */
+    }
+}
